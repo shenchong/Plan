@@ -1,0 +1,42 @@
+//
+//  Planist.pch
+//  Planist
+//
+//  Created by easemob on 16/9/22.
+//  Copyright © 2016年 沈冲. All rights reserved.
+//
+
+#ifndef Planist_pch
+#define Planist_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "BaseViewController.h"
+#import "UIView+Extension.h"
+#import "WebAPIClient.h"
+#import "MJExtension.h"
+#import <AFNetworking.h>
+#import <MBProgressHUD.h>
+#import <SVProgressHUD.h>
+
+//rgb
+#define RGBColor(r,g,b,p) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:p/1.0]
+#define kScreenBounds [UIScreen mainScreen].bounds
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+
+//#define API_HOST_Test @"http://www.planist.site/Planist"
+#define API_HOST_Test @"http://192.168.0.109:8080/Planist"
+
+//Account
+#define API_Account_LoginByPhone [NSString stringWithFormat:@"%@/loginController/loginByPhone",API_HOST_Test]
+#define API_Account_GetCode [NSString stringWithFormat:@"%@/loginController/generateCaptchaByPhone",API_HOST_Test]
+#define API_Account_GetCaptchaImg [NSString stringWithFormat:@"%@/loginController/generateCaptcha",API_HOST_Test]
+#define API_Account_SetPassword [NSString stringWithFormat:@"%@/loginController/setPassword",API_HOST_Test]
+#define API_Account_LoginByPassword [NSString stringWithFormat:@"%@/loginController/loginByPassword",API_HOST_Test]
+
+
+
+#endif /* Planist_pch */
+
+
