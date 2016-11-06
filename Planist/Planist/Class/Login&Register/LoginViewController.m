@@ -8,7 +8,9 @@
 //
 
 #import "LoginViewController.h"
-#import "ImageHelper.h"
+#import "AccountSignResult.h"
+#import "SetPasswordController.h"
+#import "UserEntity.h"
 
 @interface LoginViewController ()<UITextFieldDelegate>
 {
@@ -31,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *secretSecurity;
 @property (weak, nonatomic) IBOutlet UIButton *getCode;
 @property (nonatomic, weak) UIImageView *imgVw;
+@property (nonatomic, assign) BOOL isNew;
 
 @property (nonatomic, assign) BOOL isSecurity;
 
@@ -76,12 +79,6 @@
     [self.getCode setBackgroundColor:RGBColor(216, 216, 216, 1)];
     self.getCode.userInteractionEnabled = NO;
     [self.getCode addTarget:self action:@selector(getCodeAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIImageView *imgVw = [[UIImageView alloc]initWithFrame:CGRectMake(100, 22, 100, 32)];
-    self.imgVw = imgVw;
-//    imgVw.backgroundColor = [UIColor grayColor];
-    imgVw.centerX = self.view.centerX;
-    [self.view addSubview:imgVw];
 }
 
 - (void)securitySwitch:(UIButton *)sender{
@@ -119,55 +116,94 @@
 }
 
 - (void)loginAction{
+    
+//    SetPasswordController *newPassVC = [[SetPasswordController alloc]init];
+//    [self presentViewController:newPassVC animated:YES completion:nil];
+    
+    
     if (self.mobileInput.text.length == 11&&self.secretInput.text.length != 0) {
-        
-        NSString *phoneNumber = self.mobileInput.text;
-        NSString *urlStrTemp = [NSString stringWithFormat:@"%@?phone=%@&passwordPhone=%@",API_Account_LoginByPhone,phoneNumber,self.secretInput.text];
-        NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        
-        [WebAPIClient getJSONWithUrl:urlStr parameters:nil success:^(id result) {
-            NSLog(@"%@",result);
-            NSString *str = [[NSString alloc]initWithData:result encoding:NSUTF8StringEncoding];
-            NSLog(@"%@",str);
+        if ([self.changeLogin.titleLabel.text isEqualToString:@"使用密码登录"]) {
+            NSString *phoneNumber = self.mobileInput.text;
+            NSString *urlStrTemp = [NSString stringWithFormat:@"%@?phone=%@&passwordPhone=%@",API_Account_LoginByPhone,phoneNumber,self.secretInput.text];
+            NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            
+            [WebAPIClient getJSONWithUrl:urlStr parameters:nil success:^(id result) {
+                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+                NSLog(@"%@",dic);
+                
+                AccountSignResult *account = [UserEntity GetCurrentAccount];
+                
+                AccountSignResult *signResult = [AccountSignResult mj_objectWithKeyValues:dic];
+                account.phone = phoneNumber;
+                account.obj.token = signResult.obj.token;
+                [UserEntity SaveCurrentAccount:account];
+                
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                
+                if (account.obj.isNew) {
+                    SetPasswordController *newPassVC = [[SetPasswordController alloc]init];
+                    [self presentViewController:newPassVC animated:YES completion:nil];
+                }else{
+                    NSString *msg = [dic objectForKey:@"msg"];
+                    [MBProgressHUD showTextHUDAddedTo:self.view withText:msg detailText:nil andHideAfterDelay:1];
+                    [self performSelector:@selector(back) withObject:nil afterDelay:1];
+                }
 
-        } fail:^(NSError *error) {
+            } fail:^(NSError *error) {
+                NSLog(@"error=%@",error);
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            }];
+        }else if ([self.changeLogin.titleLabel.text isEqualToString:@"使用验证码登录"]){
+            NSString *phoneNumber = self.mobileInput.text;
+            NSString *urlStrTemp = [NSString stringWithFormat:@"%@?phone=%@&password=%@",API_Account_LoginByPassword,phoneNumber,self.secretInput.text];
+            NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             
-        }];
+            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            
+            [WebAPIClient getJSONWithUrl:urlStr parameters:nil success:^(id result) {
+                
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                
+                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+                NSLog(@"%@",dic);
+                
+                AccountSignResult *account = [UserEntity GetCurrentAccount];
+                
+                AccountSignResult *signResult = [AccountSignResult mj_objectWithKeyValues:dic];
+                
+                account.phone = signResult.phone = self.mobileInput.text;
+                account.obj.token = signResult.obj.token;
+                
+                if (account) {
+                    [UserEntity SaveCurrentAccount:account];
+                }else{
+                    [UserEntity SaveCurrentAccount:signResult];
+                }
+                
+                
+                
+                NSString *msg = signResult.msg;
+                [MBProgressHUD showTextHUDAddedTo:self.view withText:msg detailText:nil andHideAfterDelay:1];
+                [self performSelector:@selector(back) withObject:nil afterDelay:1];
+                
+            } fail:^(NSError *error) {
+                
+            }];
+        }
     }
     
     if (self.mobileInput.text.length == 0) {
-        NSLog(@"登陆失败");
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.label.text = @"请输入手机号";
-        hud.bezelView.color = RGBColor(38, 16, 17, 1);
-        hud.contentColor = [UIColor whiteColor];
-        hud.mode = MBProgressHUDModeText;
-        hud.offset = CGPointMake(0, -120);
-        [hud hideAnimated:YES afterDelay:1];
+        [MBProgressHUD showTextHUDAddedTo:self.view withText:@"请输入手机号" detailText:nil andHideAfterDelay:1];
 
     }else if (self.mobileInput.text.length != 11){
         NSLog(@"请输入正确的手机号");
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.label.text = @"请输入正确手机号";
-        hud.bezelView.color = RGBColor(38, 16, 17, 1);
-        hud.contentColor = [UIColor whiteColor];
-        hud.mode = MBProgressHUDModeText;
-        hud.offset = CGPointMake(0, -120);
-        [hud hideAnimated:YES afterDelay:1];
+        [MBProgressHUD showTextHUDAddedTo:self.view withText:@"请输入正确手机号" detailText:nil andHideAfterDelay:1];
     }else if (self.mobileInput.text.length == 11){
         if ([self.changeLogin.titleLabel.text isEqualToString:@"使用验证码登录"]) {
             if (self.secretInput.text.length != 6) {
-                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                hud.label.text = @"请输入验证码";
-                hud.bezelView.color = RGBColor(38, 16, 17, 1);
-                hud.contentColor = [UIColor whiteColor];
-                hud.mode = MBProgressHUDModeText;
-                hud.offset = CGPointMake(0, -120);
-                [hud hideAnimated:YES afterDelay:1];
+//                [MBProgressHUD showTextHUDAddedTo:self.view withText:@"请输入验证码" detailText:nil andHideAfterDelay:1];
             }
         }
     }
@@ -181,28 +217,20 @@
     NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 //    @"http://192.168.0.109:8080/Planist/loginController/generateCaptchaByPhone?18155307625"
     [WebAPIClient getJSONWithUrl:urlStr parameters:nil success:^(id result) {
-        NSLog(@"%@",result);
-        NSString *str = [[NSString alloc]initWithData:result encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",str);
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"%@",dic);
         
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.label.text = @"验证码已发送";
-        hud.detailsLabel.text = @"请耐心等待";
-        hud.bezelView.color = RGBColor(38, 16, 17, 1);
-        hud.contentColor = [UIColor whiteColor];
-        hud.mode = MBProgressHUDModeText;
-        hud.offset = CGPointMake(0, -120);
-        [hud hideAnimated:YES afterDelay:1];
+        AccountSignResult *signResult = [AccountSignResult mj_objectWithKeyValues:dic];
+        [UserEntity SaveCurrentAccount:signResult];
+        AccountSignResult *srt = [UserEntity GetCurrentAccount];
+        NSLog(@"signResult.msg==%@",signResult.msg);
+        NSLog(@"srt==%d",srt.obj.isNew);
+        
+        [MBProgressHUD showTextHUDAddedTo:self.view withText:@"验证码已发送" detailText:@"请耐心等待" andHideAfterDelay:1];
         
     } fail:^(NSError *error) {
         NSLog(@"%@",error);
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.label.text = @"发送验证码失败";
-        hud.bezelView.color = RGBColor(38, 16, 17, 1);
-        hud.contentColor = [UIColor whiteColor];
-        hud.mode = MBProgressHUDModeText;
-        hud.offset = CGPointMake(0, -120);
-        [hud hideAnimated:YES afterDelay:1];
+        [MBProgressHUD showTextHUDAddedTo:self.view withText:@"发送验证码失败" detailText:nil andHideAfterDelay:1];
     }];
 }
 

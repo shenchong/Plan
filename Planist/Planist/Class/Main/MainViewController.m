@@ -40,26 +40,48 @@
 //    self.tabBar.backgroundColor = [UIColor orangeColor];
     
     HomeViewController *homeVC = [[HomeViewController alloc]init];
-    homeVC.title = @"首页";
-    UINavigationController *homeNav = [[UINavigationController alloc]initWithRootViewController:homeVC];
-    [self addChildViewController:homeNav];
+    [self addChildViewControllerWithTitle:@"首页" Image:@"我" Controller:homeVC];
     
     DiscoverViewController *discoverVC = [[DiscoverViewController alloc]init];
-    discoverVC.title = @"发现";
-    UINavigationController *discoverNav = [[UINavigationController alloc]initWithRootViewController:discoverVC];
-    [self addChildViewController:discoverNav];
+    [self addChildViewControllerWithTitle:@"发现" Image:@"我" Controller:discoverVC];
     
     CommunityViewController *communityVC = [[CommunityViewController alloc]init];
-    communityVC.title = @"社区";
-    UINavigationController *communityNav = [[UINavigationController alloc]initWithRootViewController:communityVC];
-    [self addChildViewController:communityNav];
+    [self addChildViewControllerWithTitle:@"社区" Image:@"我" Controller:communityVC];
     
     MineViewController *mineVC = [[MineViewController alloc]init];
-    mineVC.title = @"我";
-    UINavigationController *mineNav = [[UINavigationController alloc]initWithRootViewController:mineVC];
-    [self addChildViewController:mineNav];
-    
+    [self addChildViewControllerWithTitle:@"我" Image:@"我" Controller:mineVC];
 }
+
+- (void)addChildViewControllerWithTitle:(NSString *)title Image:(NSString *)image Controller:(UIViewController *)controller{
+    
+    controller.tabBarItem.image = [UIImage imageNamed:image];
+    controller.tabBarItem.selectedImage = [[UIImage imageNamed:[NSString stringWithFormat:@"%@",image]]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    controller.title = title;
+    [self selectedTapTabBarItems:controller.tabBarItem];
+    [self unSelectedTapTabBarItems:controller.tabBarItem];
+    UINavigationController *navCtl = [[UINavigationController alloc]initWithRootViewController:controller];
+    [self addChildViewController:navCtl];
+    controller.view.backgroundColor = [UIColor whiteColor];
+}
+
+/**
+ *  设置tabbar字体
+ */
+-(void)unSelectedTapTabBarItems:(UITabBarItem *)tabBarItem
+{
+    [tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                        [UIFont fontWithName:@"PingFangSC-Regular" size:10], UITextAttributeFont,[UIColor grayColor],UITextAttributeTextColor,
+                                        nil] forState:UIControlStateNormal];
+}
+
+-(void)selectedTapTabBarItems:(UITabBarItem *)tabBarItem
+{
+    [tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                        [UIFont fontWithName:@"PingFangSC-Regular" size:10],
+                                        UITextAttributeFont,[PublicMethod SetColorWithHexString:@"#FA6464"],UITextAttributeTextColor,
+                                        nil] forState:UIControlStateSelected];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

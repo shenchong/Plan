@@ -12,6 +12,28 @@
 		C0C3E21CC7E78BA4551B524D /* libPods-Planist.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C02DE2E939D41029F37EE18F /* libPods-Planist.a */; };
 		D20721971D97964100173947 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D20721961D97964100173947 /* UIView+Extension.m */; };
 		D207219D1D97A48900173947 /* MineViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D207219C1D97A48900173947 /* MineViewCell.m */; };
+		D219DFCE1DBE4681002BFD7F /* 我的订单.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFCC1DBE4681002BFD7F /* 我的订单.png */; };
+		D219DFCF1DBE4681002BFD7F /* 我的订单@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFCD1DBE4681002BFD7F /* 我的订单@3x.png */; };
+		D219DFD21DBE469B002BFD7F /* 箭头.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFD01DBE469B002BFD7F /* 箭头.png */; };
+		D219DFD31DBE469B002BFD7F /* 箭头@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFD11DBE469B002BFD7F /* 箭头@3x.png */; };
+		D219DFD61DBE46A3002BFD7F /* 客服.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFD41DBE46A3002BFD7F /* 客服.png */; };
+		D219DFD71DBE46A3002BFD7F /* 客服@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFD51DBE46A3002BFD7F /* 客服@3x.png */; };
+		D219DFDA1DBE46AC002BFD7F /* 设置.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFD81DBE46AC002BFD7F /* 设置.png */; };
+		D219DFDB1DBE46AC002BFD7F /* 设置@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFD91DBE46AC002BFD7F /* 设置@3x.png */; };
+		D219DFDE1DBE46B3002BFD7F /* 我的收藏.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFDC1DBE46B3002BFD7F /* 我的收藏.png */; };
+		D219DFDF1DBE46B3002BFD7F /* 我的收藏@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFDD1DBE46B3002BFD7F /* 我的收藏@3x.png */; };
+		D219DFE21DBE46BF002BFD7F /* 我.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFE01DBE46BF002BFD7F /* 我.png */; };
+		D219DFE31DBE46BF002BFD7F /* 我@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFE11DBE46BF002BFD7F /* 我@3x.png */; };
+		D219DFE61DBE46C8002BFD7F /* 消息.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFE41DBE46C8002BFD7F /* 消息.png */; };
+		D219DFE71DBE46C8002BFD7F /* 消息@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFE51DBE46C8002BFD7F /* 消息@3x.png */; };
+		D219DFEA1DBE46CF002BFD7F /* 游票.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFE81DBE46CF002BFD7F /* 游票.png */; };
+		D219DFEB1DBE46CF002BFD7F /* 游票@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFE91DBE46CF002BFD7F /* 游票@3x.png */; };
+		D219DFEE1DBE46D5002BFD7F /* Rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFEC1DBE46D5002BFD7F /* Rectangle.png */; };
+		D219DFEF1DBE46D5002BFD7F /* Rectangle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFED1DBE46D5002BFD7F /* Rectangle@3x.png */; };
+		D219DFF21DBE46DD002BFD7F /* 我的资料.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFF01DBE46DD002BFD7F /* 我的资料.png */; };
+		D219DFF31DBE46DD002BFD7F /* 我的资料@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D219DFF11DBE46DD002BFD7F /* 我的资料@3x.png */; };
+		D219DFF61DBE5509002BFD7F /* PublicMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = D219DFF51DBE5509002BFD7F /* PublicMethod.m */; };
+		D21CD03A1DC9D1360034D1EF /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D21CD0391DC9D1360034D1EF /* UserInfoViewController.m */; };
 		D21DCF231D9B8AC400377289 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D21DCF221D9B8AC400377289 /* LoginViewController.m */; };
 		D21DCF261D9B8B3600377289 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = D21DCF241D9B8B3600377289 /* delete.png */; };
 		D21DCF271D9B8B3600377289 /* delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D21DCF251D9B8B3600377289 /* delete@2x.png */; };
@@ -33,14 +55,22 @@
 		D21DCF471D9B8B7B00377289 /* 验证码图标@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D21DCF451D9B8B7B00377289 /* 验证码图标@2x.png */; };
 		D21DCF4A1D9B8B8200377289 /* QQ图标 + QQ圈.png in Resources */ = {isa = PBXBuildFile; fileRef = D21DCF481D9B8B8200377289 /* QQ图标 + QQ圈.png */; };
 		D21DCF4B1D9B8B8200377289 /* QQ图标 + QQ圈@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D21DCF491D9B8B8200377289 /* QQ图标 + QQ圈@2x.png */; };
+		D21F4A581DAF4C7900BB5953 /* 刷新图标.png in Resources */ = {isa = PBXBuildFile; fileRef = D21F4A551DAF4C7900BB5953 /* 刷新图标.png */; };
+		D21F4A591DAF4C7900BB5953 /* 刷新图标@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = D21F4A561DAF4C7900BB5953 /* 刷新图标@1x.png */; };
+		D21F4A5A1DAF4C7900BB5953 /* 刷新图标@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D21F4A571DAF4C7900BB5953 /* 刷新图标@3x.png */; };
+		D21F4A5E1DAF926D00BB5953 /* AccountSignResult.m in Sources */ = {isa = PBXBuildFile; fileRef = D21F4A5D1DAF926D00BB5953 /* AccountSignResult.m */; };
+		D21F4A631DAF938200BB5953 /* ObjctResult.m in Sources */ = {isa = PBXBuildFile; fileRef = D21F4A621DAF938200BB5953 /* ObjctResult.m */; };
+		D21F4A661DAF962200BB5953 /* SetPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = D21F4A651DAF962200BB5953 /* SetPasswordController.m */; };
+		D21F4A681DAF963E00BB5953 /* SetPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D21F4A671DAF963E00BB5953 /* SetPasswordController.xib */; };
 		D220081A1DACF0C200F4239E /* WebAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D22008191DACF0C200F4239E /* WebAPIClient.m */; };
 		D239BC701D9CBAE6002CDAC9 /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = D239BC6F1D9CBAE6002CDAC9 /* Record.m */; };
-		D26841061DAD2F6A00357260 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D26841051DAD2F6A00357260 /* ImageHelper.m */; };
+		D25AD1CB1DB11C8900412FBD /* MBProgressHUD+SC.m in Sources */ = {isa = PBXBuildFile; fileRef = D25AD1CA1DB11C8900412FBD /* MBProgressHUD+SC.m */; };
 		D26FA3F01D9C27A6009386DB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26FA3EF1D9C27A6009386DB /* LoginViewController.xib */; };
 		D29A37661D9530A10005C3F3 /* header.JPG in Resources */ = {isa = PBXBuildFile; fileRef = D29A37651D9530A10005C3F3 /* header.JPG */; };
 		D29A376C1D9538480005C3F3 /* UIScrollView+Header.m in Sources */ = {isa = PBXBuildFile; fileRef = D29A376B1D9538480005C3F3 /* UIScrollView+Header.m */; };
 		D2A9E0981D9151EA00007656 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A9E0971D9151EA00007656 /* MineViewController.m */; };
 		D2A9E09B1D9151FE00007656 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A9E09A1D9151FE00007656 /* BaseViewController.m */; };
+		D2BF1B621DAFE3EC00F486DB /* UserEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BF1B611DAFE3EB00F486DB /* UserEntity.m */; };
 		D2C09D781D8E459600885A2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C09D771D8E459600885A2E /* main.m */; };
 		D2C09D7B1D8E459600885A2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C09D7A1D8E459600885A2E /* AppDelegate.m */; };
 		D2C09D811D8E459600885A2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C09D7F1D8E459600885A2E /* Main.storyboard */; };
@@ -82,6 +112,30 @@
 		D20721961D97964100173947 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		D207219B1D97A48900173947 /* MineViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewCell.h; sourceTree = "<group>"; };
 		D207219C1D97A48900173947 /* MineViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewCell.m; sourceTree = "<group>"; };
+		D219DFCC1DBE4681002BFD7F /* 我的订单.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的订单.png"; sourceTree = "<group>"; };
+		D219DFCD1DBE4681002BFD7F /* 我的订单@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的订单@3x.png"; sourceTree = "<group>"; };
+		D219DFD01DBE469B002BFD7F /* 箭头.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "箭头.png"; sourceTree = "<group>"; };
+		D219DFD11DBE469B002BFD7F /* 箭头@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "箭头@3x.png"; sourceTree = "<group>"; };
+		D219DFD41DBE46A3002BFD7F /* 客服.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "客服.png"; sourceTree = "<group>"; };
+		D219DFD51DBE46A3002BFD7F /* 客服@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "客服@3x.png"; sourceTree = "<group>"; };
+		D219DFD81DBE46AC002BFD7F /* 设置.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置.png"; sourceTree = "<group>"; };
+		D219DFD91DBE46AC002BFD7F /* 设置@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置@3x.png"; sourceTree = "<group>"; };
+		D219DFDC1DBE46B3002BFD7F /* 我的收藏.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的收藏.png"; sourceTree = "<group>"; };
+		D219DFDD1DBE46B3002BFD7F /* 我的收藏@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的收藏@3x.png"; sourceTree = "<group>"; };
+		D219DFE01DBE46BF002BFD7F /* 我.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我.png"; sourceTree = "<group>"; };
+		D219DFE11DBE46BF002BFD7F /* 我@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我@3x.png"; sourceTree = "<group>"; };
+		D219DFE41DBE46C8002BFD7F /* 消息.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息.png"; sourceTree = "<group>"; };
+		D219DFE51DBE46C8002BFD7F /* 消息@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息@3x.png"; sourceTree = "<group>"; };
+		D219DFE81DBE46CF002BFD7F /* 游票.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "游票.png"; sourceTree = "<group>"; };
+		D219DFE91DBE46CF002BFD7F /* 游票@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "游票@3x.png"; sourceTree = "<group>"; };
+		D219DFEC1DBE46D5002BFD7F /* Rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rectangle.png; sourceTree = "<group>"; };
+		D219DFED1DBE46D5002BFD7F /* Rectangle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle@3x.png"; sourceTree = "<group>"; };
+		D219DFF01DBE46DD002BFD7F /* 我的资料.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的资料.png"; sourceTree = "<group>"; };
+		D219DFF11DBE46DD002BFD7F /* 我的资料@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的资料@3x.png"; sourceTree = "<group>"; };
+		D219DFF41DBE5509002BFD7F /* PublicMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicMethod.h; sourceTree = "<group>"; };
+		D219DFF51DBE5509002BFD7F /* PublicMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicMethod.m; sourceTree = "<group>"; };
+		D21CD0381DC9D1360034D1EF /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		D21CD0391DC9D1360034D1EF /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		D21DCF211D9B8AC400377289 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D21DCF221D9B8AC400377289 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D21DCF241D9B8B3600377289 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
@@ -104,11 +158,21 @@
 		D21DCF451D9B8B7B00377289 /* 验证码图标@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "验证码图标@2x.png"; sourceTree = "<group>"; };
 		D21DCF481D9B8B8200377289 /* QQ图标 + QQ圈.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QQ图标 + QQ圈.png"; sourceTree = "<group>"; };
 		D21DCF491D9B8B8200377289 /* QQ图标 + QQ圈@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QQ图标 + QQ圈@2x.png"; sourceTree = "<group>"; };
+		D21F4A551DAF4C7900BB5953 /* 刷新图标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "刷新图标.png"; sourceTree = "<group>"; };
+		D21F4A561DAF4C7900BB5953 /* 刷新图标@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "刷新图标@1x.png"; sourceTree = "<group>"; };
+		D21F4A571DAF4C7900BB5953 /* 刷新图标@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "刷新图标@3x.png"; sourceTree = "<group>"; };
+		D21F4A5C1DAF926D00BB5953 /* AccountSignResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountSignResult.h; sourceTree = "<group>"; };
+		D21F4A5D1DAF926D00BB5953 /* AccountSignResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountSignResult.m; sourceTree = "<group>"; };
+		D21F4A611DAF938200BB5953 /* ObjctResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjctResult.h; sourceTree = "<group>"; };
+		D21F4A621DAF938200BB5953 /* ObjctResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjctResult.m; sourceTree = "<group>"; };
+		D21F4A641DAF962200BB5953 /* SetPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetPasswordController.h; sourceTree = "<group>"; };
+		D21F4A651DAF962200BB5953 /* SetPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetPasswordController.m; sourceTree = "<group>"; };
+		D21F4A671DAF963E00BB5953 /* SetPasswordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetPasswordController.xib; sourceTree = "<group>"; };
 		D22008181DACF0C200F4239E /* WebAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebAPIClient.h; sourceTree = "<group>"; };
 		D22008191DACF0C200F4239E /* WebAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebAPIClient.m; sourceTree = "<group>"; };
 		D239BC6F1D9CBAE6002CDAC9 /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
-		D26841041DAD2F6A00357260 /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHelper.h; sourceTree = "<group>"; };
-		D26841051DAD2F6A00357260 /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHelper.m; sourceTree = "<group>"; };
+		D25AD1C91DB11C8900412FBD /* MBProgressHUD+SC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+SC.h"; sourceTree = "<group>"; };
+		D25AD1CA1DB11C8900412FBD /* MBProgressHUD+SC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+SC.m"; sourceTree = "<group>"; };
 		D26841071DAD377500357260 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D26FA3EF1D9C27A6009386DB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		D29A37651D9530A10005C3F3 /* header.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = header.JPG; sourceTree = "<group>"; };
@@ -118,6 +182,8 @@
 		D2A9E0971D9151EA00007656 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		D2A9E0991D9151FE00007656 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		D2A9E09A1D9151FE00007656 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		D2BF1B601DAFE3EB00F486DB /* UserEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserEntity.h; sourceTree = "<group>"; };
+		D2BF1B611DAFE3EB00F486DB /* UserEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserEntity.m; sourceTree = "<group>"; };
 		D2C09D731D8E459600885A2E /* Planist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Planist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C09D771D8E459600885A2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D2C09D791D8E459600885A2E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -192,6 +258,8 @@
 			children = (
 				D2A9E0961D9151EA00007656 /* MineViewController.h */,
 				D2A9E0971D9151EA00007656 /* MineViewController.m */,
+				D21CD0381DC9D1360034D1EF /* UserInfoViewController.h */,
+				D21CD0391DC9D1360034D1EF /* UserInfoViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -235,28 +303,12 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		D22008171DACF08200F4239E /* Utils */ = {
+		D219DFCA1DBE4630002BFD7F /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				D26841041DAD2F6A00357260 /* ImageHelper.h */,
-				D26841051DAD2F6A00357260 /* ImageHelper.m */,
-				D22008181DACF0C200F4239E /* WebAPIClient.h */,
-				D22008191DACF0C200F4239E /* WebAPIClient.m */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		D239BC6E1D9CBA47002CDAC9 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				D239BC6F1D9CBAE6002CDAC9 /* Record.m */,
-			);
-			path = Other;
-			sourceTree = "<group>";
-		};
-		D29A37641D95305F0005C3F3 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
+				D21F4A551DAF4C7900BB5953 /* 刷新图标.png */,
+				D21F4A561DAF4C7900BB5953 /* 刷新图标@1x.png */,
+				D21F4A571DAF4C7900BB5953 /* 刷新图标@3x.png */,
 				D21DCF481D9B8B8200377289 /* QQ图标 + QQ圈.png */,
 				D21DCF491D9B8B8200377289 /* QQ图标 + QQ圈@2x.png */,
 				D21DCF441D9B8B7B00377289 /* 验证码图标.png */,
@@ -277,6 +329,81 @@
 				D21DCF291D9B8B4900377289 /* 盾牌_盾牌图标@2x.png */,
 				D21DCF241D9B8B3600377289 /* delete.png */,
 				D21DCF251D9B8B3600377289 /* delete@2x.png */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		D219DFCB1DBE465D002BFD7F /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				D219DFF01DBE46DD002BFD7F /* 我的资料.png */,
+				D219DFF11DBE46DD002BFD7F /* 我的资料@3x.png */,
+				D219DFEC1DBE46D5002BFD7F /* Rectangle.png */,
+				D219DFED1DBE46D5002BFD7F /* Rectangle@3x.png */,
+				D219DFE81DBE46CF002BFD7F /* 游票.png */,
+				D219DFE91DBE46CF002BFD7F /* 游票@3x.png */,
+				D219DFE41DBE46C8002BFD7F /* 消息.png */,
+				D219DFE51DBE46C8002BFD7F /* 消息@3x.png */,
+				D219DFE01DBE46BF002BFD7F /* 我.png */,
+				D219DFE11DBE46BF002BFD7F /* 我@3x.png */,
+				D219DFDC1DBE46B3002BFD7F /* 我的收藏.png */,
+				D219DFDD1DBE46B3002BFD7F /* 我的收藏@3x.png */,
+				D219DFD81DBE46AC002BFD7F /* 设置.png */,
+				D219DFD91DBE46AC002BFD7F /* 设置@3x.png */,
+				D219DFD41DBE46A3002BFD7F /* 客服.png */,
+				D219DFD51DBE46A3002BFD7F /* 客服@3x.png */,
+				D219DFD01DBE469B002BFD7F /* 箭头.png */,
+				D219DFD11DBE469B002BFD7F /* 箭头@3x.png */,
+				D219DFCC1DBE4681002BFD7F /* 我的订单.png */,
+				D219DFCD1DBE4681002BFD7F /* 我的订单@3x.png */,
+			);
+			name = Mine;
+			sourceTree = "<group>";
+		};
+		D21F4A5B1DAF91ED00BB5953 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D21F4A5C1DAF926D00BB5953 /* AccountSignResult.h */,
+				D21F4A5D1DAF926D00BB5953 /* AccountSignResult.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D21F4A5F1DAF934800BB5953 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D21F4A611DAF938200BB5953 /* ObjctResult.h */,
+				D21F4A621DAF938200BB5953 /* ObjctResult.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D22008171DACF08200F4239E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D22008181DACF0C200F4239E /* WebAPIClient.h */,
+				D22008191DACF0C200F4239E /* WebAPIClient.m */,
+				D2BF1B601DAFE3EB00F486DB /* UserEntity.h */,
+				D2BF1B611DAFE3EB00F486DB /* UserEntity.m */,
+				D219DFF41DBE5509002BFD7F /* PublicMethod.h */,
+				D219DFF51DBE5509002BFD7F /* PublicMethod.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		D239BC6E1D9CBA47002CDAC9 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				D239BC6F1D9CBAE6002CDAC9 /* Record.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		D29A37641D95305F0005C3F3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D219DFCB1DBE465D002BFD7F /* Mine */,
+				D219DFCA1DBE4630002BFD7F /* Login */,
 				D29A37651D9530A10005C3F3 /* header.JPG */,
 			);
 			path = Resources;
@@ -365,12 +492,16 @@
 		D2C09DAA1D8E49AD00885A2E /* Login&Register */ = {
 			isa = PBXGroup;
 			children = (
+				D21F4A5B1DAF91ED00BB5953 /* Model */,
 				D21DCF211D9B8AC400377289 /* LoginViewController.h */,
 				D21DCF221D9B8AC400377289 /* LoginViewController.m */,
 				D26FA3EF1D9C27A6009386DB /* LoginViewController.xib */,
 				B7DABF8E1DA53D8C00363CBB /* BindMobileController.h */,
 				B7DABF8F1DA53D8C00363CBB /* BindMobileController.m */,
 				B7DABF911DA53DCD00363CBB /* BindMobileController.xib */,
+				D21F4A641DAF962200BB5953 /* SetPasswordController.h */,
+				D21F4A651DAF962200BB5953 /* SetPasswordController.m */,
+				D21F4A671DAF963E00BB5953 /* SetPasswordController.xib */,
 			);
 			path = "Login&Register";
 			sourceTree = "<group>";
@@ -389,6 +520,8 @@
 				D29A376B1D9538480005C3F3 /* UIScrollView+Header.m */,
 				D20721951D97964100173947 /* UIView+Extension.h */,
 				D20721961D97964100173947 /* UIView+Extension.m */,
+				D25AD1C91DB11C8900412FBD /* MBProgressHUD+SC.h */,
+				D25AD1CA1DB11C8900412FBD /* MBProgressHUD+SC.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -396,6 +529,7 @@
 		D2C09DAD1D8E4A9700885A2E /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				D21F4A5F1DAF934800BB5953 /* Models */,
 				D2C09DB41D8E994F00885A2E /* Mine */,
 				D2C09DB31D8E991500885A2E /* Community */,
 				D2C09DB21D8E98E100885A2E /* Discover */,
@@ -552,30 +686,54 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7DABF921DA53DCD00363CBB /* BindMobileController.xib in Resources */,
+				D219DFE21DBE46BF002BFD7F /* 我.png in Resources */,
 				D2C09D861D8E459600885A2E /* LaunchScreen.storyboard in Resources */,
+				D219DFEF1DBE46D5002BFD7F /* Rectangle@3x.png in Resources */,
+				D219DFF31DBE46DD002BFD7F /* 我的资料@3x.png in Resources */,
+				D21F4A581DAF4C7900BB5953 /* 刷新图标.png in Resources */,
 				D21DCF271D9B8B3600377289 /* delete@2x.png in Resources */,
+				D219DFEA1DBE46CF002BFD7F /* 游票.png in Resources */,
 				D21DCF4B1D9B8B8200377289 /* QQ图标 + QQ圈@2x.png in Resources */,
 				D21DCF3B1D9B8B6500377289 /* 手机图标@2x.png in Resources */,
 				D21DCF331D9B8B5800377289 /* 密码可见图标@2x.png in Resources */,
+				D219DFE61DBE46C8002BFD7F /* 消息.png in Resources */,
 				D21DCF3F1D9B8B6C00377289 /* 微博图标 + 微博圈@2x.png in Resources */,
 				D21DCF2F1D9B8B5100377289 /* 密码不可见图标@2x.png in Resources */,
 				D21DCF461D9B8B7B00377289 /* 验证码图标.png in Resources */,
+				D219DFD71DBE46A3002BFD7F /* 客服@3x.png in Resources */,
 				D2C09D831D8E459600885A2E /* Assets.xcassets in Resources */,
+				D219DFCE1DBE4681002BFD7F /* 我的订单.png in Resources */,
 				D21DCF2B1D9B8B4900377289 /* 盾牌_盾牌图标@2x.png in Resources */,
 				D21DCF3E1D9B8B6C00377289 /* 微博图标 + 微博圈.png in Resources */,
+				D219DFD31DBE469B002BFD7F /* 箭头@3x.png in Resources */,
 				D21DCF2E1D9B8B5100377289 /* 密码不可见图标.png in Resources */,
 				D21DCF421D9B8B7300377289 /* 微信图标 + 微信圈.png in Resources */,
+				D21F4A591DAF4C7900BB5953 /* 刷新图标@1x.png in Resources */,
 				D21DCF471D9B8B7B00377289 /* 验证码图标@2x.png in Resources */,
 				D21DCF321D9B8B5800377289 /* 密码可见图标.png in Resources */,
+				D219DFDA1DBE46AC002BFD7F /* 设置.png in Resources */,
+				D219DFD61DBE46A3002BFD7F /* 客服.png in Resources */,
 				D26FA3F01D9C27A6009386DB /* LoginViewController.xib in Resources */,
+				D219DFD21DBE469B002BFD7F /* 箭头.png in Resources */,
 				D21DCF371D9B8B5E00377289 /* 密码图标@2x.png in Resources */,
+				D219DFDE1DBE46B3002BFD7F /* 我的收藏.png in Resources */,
 				D21DCF361D9B8B5E00377289 /* 密码图标.png in Resources */,
+				D219DFF21DBE46DD002BFD7F /* 我的资料.png in Resources */,
+				D219DFDB1DBE46AC002BFD7F /* 设置@3x.png in Resources */,
+				D21F4A681DAF963E00BB5953 /* SetPasswordController.xib in Resources */,
 				D21DCF3A1D9B8B6500377289 /* 手机图标.png in Resources */,
 				D29A37661D9530A10005C3F3 /* header.JPG in Resources */,
+				D219DFE71DBE46C8002BFD7F /* 消息@3x.png in Resources */,
+				D219DFE31DBE46BF002BFD7F /* 我@3x.png in Resources */,
 				D21DCF4A1D9B8B8200377289 /* QQ图标 + QQ圈.png in Resources */,
 				D21DCF431D9B8B7300377289 /* 微信图标 + 微信圈@2x.png in Resources */,
 				D21DCF261D9B8B3600377289 /* delete.png in Resources */,
+				D21F4A5A1DAF4C7900BB5953 /* 刷新图标@3x.png in Resources */,
+				D219DFEB1DBE46CF002BFD7F /* 游票@3x.png in Resources */,
+				D219DFEE1DBE46D5002BFD7F /* Rectangle.png in Resources */,
+				D219DFDF1DBE46B3002BFD7F /* 我的收藏@3x.png in Resources */,
 				D21DCF2A1D9B8B4900377289 /* 盾牌_盾牌图标.png in Resources */,
+				D219DFCF1DBE4681002BFD7F /* 我的订单@3x.png in Resources */,
 				D2C09D811D8E459600885A2E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -651,20 +809,26 @@
 			files = (
 				D207219D1D97A48900173947 /* MineViewCell.m in Sources */,
 				D20721971D97964100173947 /* UIView+Extension.m in Sources */,
-				D26841061DAD2F6A00357260 /* ImageHelper.m in Sources */,
 				D239BC701D9CBAE6002CDAC9 /* Record.m in Sources */,
 				D29A376C1D9538480005C3F3 /* UIScrollView+Header.m in Sources */,
 				D220081A1DACF0C200F4239E /* WebAPIClient.m in Sources */,
+				D219DFF61DBE5509002BFD7F /* PublicMethod.m in Sources */,
 				D2D4E0751D93A0EE00EB5D74 /* CommunityViewController.m in Sources */,
 				D2C09D7B1D8E459600885A2E /* AppDelegate.m in Sources */,
+				D2BF1B621DAFE3EC00F486DB /* UserEntity.m in Sources */,
 				D2A9E09B1D9151FE00007656 /* BaseViewController.m in Sources */,
 				D2D4E0721D93A0E000EB5D74 /* DiscoverViewController.m in Sources */,
 				D2C09DB01D8E4B0900885A2E /* MainViewController.m in Sources */,
+				D25AD1CB1DB11C8900412FBD /* MBProgressHUD+SC.m in Sources */,
 				D21DCF231D9B8AC400377289 /* LoginViewController.m in Sources */,
+				D21F4A5E1DAF926D00BB5953 /* AccountSignResult.m in Sources */,
 				B7DABF901DA53D8C00363CBB /* BindMobileController.m in Sources */,
 				D2C09D781D8E459600885A2E /* main.m in Sources */,
+				D21CD03A1DC9D1360034D1EF /* UserInfoViewController.m in Sources */,
 				D2A9E0981D9151EA00007656 /* MineViewController.m in Sources */,
 				D2D4E06F1D93A0B600EB5D74 /* HomeViewController.m in Sources */,
+				D21F4A661DAF962200BB5953 /* SetPasswordController.m in Sources */,
+				D21F4A631DAF938200BB5953 /* ObjctResult.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

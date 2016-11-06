@@ -15,6 +15,8 @@
 #import "UIView+Extension.h"
 #import "WebAPIClient.h"
 #import "MJExtension.h"
+#import "MBProgressHUD+SC.h"
+#import "PublicMethod.h"
 #import <AFNetworking.h>
 #import <MBProgressHUD.h>
 #import <SVProgressHUD.h>
@@ -26,7 +28,7 @@
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 
 //#define API_HOST_Test @"http://www.planist.site/Planist"
-#define API_HOST_Test @"http://192.168.0.109:8080/Planist"
+#define API_HOST_Test @"http://192.168.0.110:8080/Planist"
 
 //Account
 #define API_Account_LoginByPhone [NSString stringWithFormat:@"%@/loginController/loginByPhone",API_HOST_Test]
@@ -34,7 +36,29 @@
 #define API_Account_GetCaptchaImg [NSString stringWithFormat:@"%@/loginController/generateCaptcha",API_HOST_Test]
 #define API_Account_SetPassword [NSString stringWithFormat:@"%@/loginController/setPassword",API_HOST_Test]
 #define API_Account_LoginByPassword [NSString stringWithFormat:@"%@/loginController/loginByPassword",API_HOST_Test]
-
+//User
+//上传头像
+#define API_UpdateHeader(phone) [NSString stringWithFormat:@"%@/userController/(phone)/setImage",API_HOST_Test]
+//更改用户名
+#define API_SetUserName(phone) [NSString stringWithFormat:@"%@/userController/(phone)/setUserName",API_HOST_Test]
+//获取全部用户信息
+#define API_GetUserInfoAll(phone) [NSString stringWithFormat:@"%@/userController/(phone)/getUserInfoAll",API_HOST_Test]
+//设置用户回答的三个问题
+#define API_SetQuestionResult(phone) [NSString stringWithFormat:@"%@/userController/(phone)/setQuestionResult",API_HOST_Test]
+//设置用户生日
+#define API_SetBirthday(phone) [NSString stringWithFormat:@"%@/userController/(phone)/setBirthday",API_HOST_Test]
+//设置常驻地址
+//设置用户个人简介
+#define API_SetIntroduction(phone) [NSString stringWithFormat:@"%@/userController/(phone)/setIntroduction",API_HOST_Test]
+//Address
+//添加地址
+#define API_AddAddress(phone) [NSString stringWithFormat:@"%@/addressController/(phone)/addAddress",API_HOST_Test]
+//删除地址
+#define API_DeleteAddress(phone) [NSString stringWithFormat:@"%@/addressController/(phone)/deleteAddress",API_HOST_Test]
+//设置默认地址
+#define API_SetPretermissionAddress(phone) [NSString stringWithFormat:@"%@/addressController/(phone)/setPretermissionAddress",API_HOST_Test]
+//获取收货地址列表
+#define API_GetAddressList(phone) [NSString stringWithFormat:@"%@/addressController/(phone)/getAddressList",API_HOST_Test]
 
 
 #endif /* Planist_pch */

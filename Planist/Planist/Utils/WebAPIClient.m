@@ -15,7 +15,7 @@
     
     session.requestSerializer = [AFJSONRequestSerializer serializer];
     session.responseSerializer = [AFHTTPResponseSerializer serializer];
-    session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
+    session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", @"image/jpeg", nil];
     
     [session GET:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
         
@@ -37,7 +37,7 @@
     session.requestSerializer = [AFJSONRequestSerializer serializer];
     session.responseSerializer = [AFHTTPResponseSerializer serializer];
     session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
-
+    
     [session POST:url parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -49,6 +49,32 @@
         if (fail) {
             fail(error);
         }
+    }];
+}
+
++ (void)postHeaderWithUrl:(NSString *)url parameters:(id)parameters image:(UIImage *)image success:(void (^)(id))success fail:(void (^)(NSError *))fail{
+    
+    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+    session.requestSerializer = [AFJSONRequestSerializer serializer];
+    session.responseSerializer = [AFHTTPResponseSerializer serializer];
+    session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
+    
+    [session POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        NSData *data = UIImageJPEGRepresentation(image, 1.0);
+        [formData appendPartWithFileData:data name:@"file" fileName:@"headImg.png" mimeType:@"image/png"];
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (success)
+        {
+            success(responseObject);
+        }
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (fail) {
+            fail(error);
+        }
+
     }];
 }
 

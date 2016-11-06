@@ -13,10 +13,10 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        _label = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth-40, 0, 40, self.height)];
-        _label.textColor = [UIColor grayColor];
-        _label.font = [UIFont systemFontOfSize:12];
-        [self.contentView addSubview:_label];
+//        _label = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth-40, 0, 40, self.height)];
+//        _label.textColor = [UIColor grayColor];
+//        _label.font = [UIFont systemFontOfSize:12];
+//        [self.contentView addSubview:_label];
     }
     return self;
 }

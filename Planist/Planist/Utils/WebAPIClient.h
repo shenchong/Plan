@@ -11,6 +11,8 @@
 @interface WebAPIClient : NSObject
 //get方法
 + (void)getJSONWithUrl:(NSString *)url parameters:(id)parameters success:(void (^)(id result))success fail:(void (^)(NSError *error))fail;
-/// 4.post提交json数据
+//post提交json数据
 + (void)postJSONWithUrl:(NSString *)url parameters:(id)parameters success:(void (^)(id result))success fail:(void (^)(NSError *error))fail;
+//上传头像
++ (void)postHeaderWithUrl:(NSString *)url parameters:(id)parameters image:(UIImage *)image success:(void (^)(id result))success fail:(void (^)(NSError *error))fail;
 @end

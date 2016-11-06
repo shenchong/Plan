@@ -107,18 +107,17 @@
                     <rect key="frame" x="78" y="221" width="210" height="20"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" tag="1001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jrd-fa-ioS">
                     <rect key="frame" x="78" y="181" width="240" height="20"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmI-xc-zxA">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmI-xc-zxA">
                     <rect key="frame" x="260" y="215" width="60" height="20"/>
                     <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
                     <state key="normal" title="获取验证码">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>

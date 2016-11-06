@@ -49,7 +49,36 @@
 }
 
 - (void)bindAction{
+    if (self.mobileInput.text.length == 11&&self.codeInput.text.length != 0) {
+        
+        NSString *phoneNumber = self.mobileInput.text;
+        NSString *urlStrTemp = [NSString stringWithFormat:@"%@?phone=%@&passwordPhone=%@",API_Account_LoginByPhone,phoneNumber,self.codeInput.text];
+        NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        [WebAPIClient getJSONWithUrl:urlStr parameters:nil success:^(id result) {
+            //            NSLog(@"%@",result);
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+            NSLog(@"%@",dic);
+            
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            
+            NSString *msg = [dic objectForKey:@"msg"];
+            [MBProgressHUD showTextHUDAddedTo:self.view withText:msg detailText:nil andHideAfterDelay:1];
+            
+        } fail:^(NSError *error) {
+            
+        }];
+    }
     
+    if (self.mobileInput.text.length != 11){
+        [MBProgressHUD showTextHUDAddedTo:self.view withText:@"请输入正确手机号" detailText:nil andHideAfterDelay:1];
+    }else if (self.mobileInput.text.length == 11){
+        if (self.codeInput.text.length != 6) {
+            [MBProgressHUD showTextHUDAddedTo:self.view withText:@"请输入验证码" detailText:nil andHideAfterDelay:1];
+        }
+    }
 }
 
 - (void)getCodeAction:(UIButton *)sender{
@@ -63,13 +92,7 @@
         NSLog(@"%@",result);
     } fail:^(NSError *error) {
         NSLog(@"%@",error);
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.label.text = @"发送验证码失败";
-        hud.bezelView.color = RGBColor(38, 16, 17, 1);
-        hud.contentColor = [UIColor whiteColor];
-        hud.mode = MBProgressHUDModeText;
-        hud.offset = CGPointMake(0, -120);
-        [hud hideAnimated:YES afterDelay:1];
+        [MBProgressHUD showTextHUDAddedTo:self.view withText:@"请输入验证码" detailText:nil andHideAfterDelay:1];
     }];
 }
 

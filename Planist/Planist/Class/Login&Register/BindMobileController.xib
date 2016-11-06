@@ -51,13 +51,13 @@
                     <rect key="frame" x="78" y="221" width="180" height="20"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" tag="1001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bLe-u7-0BY">
                     <rect key="frame" x="78" y="181" width="240" height="20"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
+                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXX-lv-nm6">
                     <rect key="frame" x="260" y="215" width="60" height="20"/>
@@ -74,7 +74,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="为了您的账户安全，请绑定手机号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3S-mL-bsh">
                     <rect key="frame" x="78" y="122" width="200" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>

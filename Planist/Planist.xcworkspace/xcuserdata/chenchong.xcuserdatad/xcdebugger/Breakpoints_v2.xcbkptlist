@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Planist/Class/Login&amp;Register/LoginViewController.m"
+            timestampString = "499485307.085221"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "-loginAction"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Planist/Class/Login&amp;Register/LoginViewController.m"
+            timestampString = "499485537.148248"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "-loginAction"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Planist/Class/Mine/Controllers/MineViewController.m"
+            timestampString = "499485679.5183"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
+            landmarkName = "-userInfo"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MineViewController userInfo]"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.672954"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "217"
+                  endingLineNumber = "217"
+                  offsetFromSymbolStart = "486">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__30-[MineViewController userInfo]_block_invoke"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.673717"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "217"
+                  endingLineNumber = "217"
+                  offsetFromSymbolStart = "46">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Planist/Class/Mine/Controllers/MineViewController.m"
+            timestampString = "499485713.462488"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "-userInfo"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Planist/Class/Mine/Controllers/MineViewController.m"
+            timestampString = "499485883.13644"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "-setBirthday"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MineViewController setBirthday]"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.695619"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "235"
+                  endingLineNumber = "235"
+                  offsetFromSymbolStart = "486">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__33-[MineViewController setBirthday]_block_invoke"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.696165"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "235"
+                  endingLineNumber = "235"
+                  offsetFromSymbolStart = "46">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Planist/Class/Mine/Controllers/MineViewController.m"
+            timestampString = "499486039.989914"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
+            landmarkName = "-setDomicile"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MineViewController setDomicile]"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.698363"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "256"
+                  endingLineNumber = "256"
+                  offsetFromSymbolStart = "486">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__33-[MineViewController setDomicile]_block_invoke"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.698628"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "256"
+                  endingLineNumber = "256"
+                  offsetFromSymbolStart = "46">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Planist/Class/Mine/Controllers/MineViewController.m"
+            timestampString = "499486121.519415"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+            landmarkName = "-setIntroduction"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MineViewController setIntroduction]"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.700552"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "275"
+                  endingLineNumber = "275"
+                  offsetFromSymbolStart = "486">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__37-[MineViewController setIntroduction]_block_invoke"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.700958"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "275"
+                  endingLineNumber = "275"
+                  offsetFromSymbolStart = "46">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Planist/Class/Mine/Controllers/MineViewController.m"
+            timestampString = "499486185.558633"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
+            landmarkName = "-getUserInfoAll"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MineViewController getUserInfoAll]"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.703253"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "293"
+                  endingLineNumber = "293"
+                  offsetFromSymbolStart = "486">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[MineViewController getUserInfoAll]_block_invoke"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.703538"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "293"
+                  endingLineNumber = "293"
+                  offsetFromSymbolStart = "46">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Planist/Class/Mine/Controllers/MineViewController.m"
+            timestampString = "499486544.937183"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
+            landmarkName = "-addAddress"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MineViewController addAddress]"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.711399"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "312"
+                  endingLineNumber = "312"
+                  offsetFromSymbolStart = "486">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__32-[MineViewController addAddress]_block_invoke"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.711663"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "312"
+                  endingLineNumber = "312"
+                  offsetFromSymbolStart = "46">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Planist/Class/Mine/Controllers/MineViewController.m"
+            timestampString = "499486692.879869"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
+            landmarkName = "-getAddressList"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MineViewController getAddressList]"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.712846"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "330"
+                  endingLineNumber = "330"
+                  offsetFromSymbolStart = "486">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[MineViewController getAddressList]_block_invoke"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.713041"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "330"
+                  endingLineNumber = "330"
+                  offsetFromSymbolStart = "46">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Planist/Class/Mine/Controllers/MineViewController.m"
+            timestampString = "499486793.981859"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "348"
+            endingLineNumber = "348"
+            landmarkName = "-deleteAddress"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MineViewController deleteAddress]"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.714416"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "348"
+                  endingLineNumber = "348"
+                  offsetFromSymbolStart = "486">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__35-[MineViewController deleteAddress]_block_invoke"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.714618"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "348"
+                  endingLineNumber = "348"
+                  offsetFromSymbolStart = "46">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Planist/Class/Mine/Controllers/MineViewController.m"
+            timestampString = "499486949.25145"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "367"
+            endingLineNumber = "367"
+            landmarkName = "-setPretermissionAddress"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MineViewController setPretermissionAddress]"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.715792"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "367"
+                  endingLineNumber = "367"
+                  offsetFromSymbolStart = "486">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__45-[MineViewController setPretermissionAddress]_block_invoke"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.715996"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "367"
+                  endingLineNumber = "367"
+                  offsetFromSymbolStart = "46">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Planist/Class/Mine/Controllers/MineViewController.m"
+            timestampString = "499487722.565921"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
+            landmarkName = "-setImage"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MineViewController setImage]"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.717942"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "394"
+                  endingLineNumber = "394"
+                  offsetFromSymbolStart = "693">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__30-[MineViewController setImage]_block_invoke"
+                  moduleName = "Planist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenchong/Desktop/%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%B7%A5/Planist/Planist/Planist/Class/Mine/Controllers/MineViewController.m"
+                  timestampString = "499487865.718223"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "394"
+                  endingLineNumber = "394"
+                  offsetFromSymbolStart = "46">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Planist/Class/Mine/Controllers/MineViewController.m"
+            timestampString = "499487741.667571"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "388"
+            endingLineNumber = "388"
+            landmarkName = "-setImage"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Planist/Class/Mine/Controllers/MineViewController.m"
+            timestampString = "499487862.19082"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "386"
+            endingLineNumber = "386"
+            landmarkName = "-setImage"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
