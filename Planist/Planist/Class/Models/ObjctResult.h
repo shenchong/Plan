@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UserInfoModel.h"
 
 @interface ObjctResult : NSObject<NSCoding>
 
@@ -14,5 +15,8 @@
 @property (nonatomic, assign) BOOL isNew;
 @property (nonatomic, strong) NSString *encrypttext;
 @property (nonatomic, strong) NSString *bitmap;
+@property (nonatomic, assign) NSInteger addressId;
+@property (nonatomic, strong) UserInfoModel *userinfo;
 
 @end
+

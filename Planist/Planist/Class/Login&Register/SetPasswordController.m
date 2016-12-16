@@ -50,17 +50,14 @@
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"%@",dic);
         if (dic) {
-            AccountSignResult *account = [UserEntity GetCurrentAccount];
+            ObjctResult *account = [UserEntity GetCurrentAccount];
             AccountSignResult *accountResult = [AccountSignResult mj_objectWithKeyValues:dic];
             NSData *data = [[NSData alloc]initWithBase64EncodedString:accountResult.obj.bitmap options:NSDataBase64DecodingIgnoreUnknownCharacters];
             UIImage *image = [[UIImage alloc]initWithData:data];
             self.idCodeImage.image = image;
-            account.obj.bitmap = accountResult.obj.bitmap;
-            account.obj.encrypttext = accountResult.obj.encrypttext;
+            account.bitmap = accountResult.obj.bitmap;
+            account.encrypttext = accountResult.obj.encrypttext;
             [UserEntity SaveCurrentAccount:account];
-            
-            
-            NSString *photoString = [data base64Encoding];
         }
     } fail:^(NSError *error) {
         NSLog(@"%@",error);
@@ -71,11 +68,11 @@
     
     if ([self.passwordInput.text isEqualToString:self.passwordInputRe.text]&&self.idImgCode.text.length > 0) {
         
-        AccountSignResult *account = [UserEntity GetCurrentAccount];
-        NSString *token = account.obj.token;
-        NSString *encrypttext = account.obj.encrypttext;
+        ObjctResult *account = [UserEntity GetCurrentAccount];
+        NSString *token = account.token;
+        NSString *encrypttext = account.encrypttext;
         
-        NSString *urlStrTemp = [NSString stringWithFormat:@"%@?phone=%@&token=%@&password=%@&encryptText=%@&inputText=%@",API_Account_SetPassword,account.phone,token,self.passwordInput.text,encrypttext,self.idImgCode.text];
+        NSString *urlStrTemp = [NSString stringWithFormat:@"%@?phone=%@&token=%@&password=%@&encryptText=%@&inputText=%@",API_Account_SetPassword,account.userinfo.phone,token,self.passwordInput.text,encrypttext,self.idImgCode.text];
         NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
         [WebAPIClient postJSONWithUrl:urlStr parameters:nil success:^(id result) {

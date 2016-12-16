@@ -16,6 +16,8 @@
 @property (nonatomic, assign) BOOL success;
 //@property (nonatomic, strong) NSString *encrypttext;
 
-@property (nonatomic, strong) NSString *phone;
+
 
 @end
+
+

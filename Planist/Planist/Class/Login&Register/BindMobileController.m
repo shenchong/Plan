@@ -7,6 +7,8 @@
 //
 
 #import "BindMobileController.h"
+#import "AccountSignResult.h"
+#import "UserEntity.h"
 
 @interface BindMobileController (){
     dispatch_source_t _timer;
@@ -64,11 +66,19 @@
             
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             
+            ObjctResult *account = [UserEntity GetCurrentAccount];
+            
+            AccountSignResult *signResult = [AccountSignResult mj_objectWithKeyValues:dic];
+            signResult.obj.userinfo.phone = account.userinfo.phone = phoneNumber;
+            account.token = signResult.obj.token;
+            [UserEntity SaveCurrentAccount:account];
+            
             NSString *msg = [dic objectForKey:@"msg"];
             [MBProgressHUD showTextHUDAddedTo:self.view withText:msg detailText:nil andHideAfterDelay:1];
+            [self performSelector:@selector(bindPhoneSucceed) withObject:nil afterDelay:0.7];
             
         } fail:^(NSError *error) {
-            
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
     }
     
@@ -90,6 +100,12 @@
     
     [WebAPIClient getJSONWithUrl:urlStr parameters:nil success:^(id result) {
         NSLog(@"%@",result);
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+
+        AccountSignResult *signResult = [AccountSignResult mj_objectWithKeyValues:dic];
+        signResult.obj.userinfo.phone = phoneNumber;
+        [UserEntity SaveCurrentAccount:signResult.obj];
+        
     } fail:^(NSError *error) {
         NSLog(@"%@",error);
         [MBProgressHUD showTextHUDAddedTo:self.view withText:@"请输入验证码" detailText:nil andHideAfterDelay:1];
@@ -142,6 +158,10 @@
             [self.getCode setBackgroundColor:RGBColor(216, 216, 216, 1)];
         }
     }
+}
+
+- (void)bindPhoneSucceed{
+    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)back{

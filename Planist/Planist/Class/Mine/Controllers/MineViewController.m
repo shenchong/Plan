@@ -13,6 +13,8 @@
 #import "BindMobileController.h"
 #import "SetPasswordController.h"
 #import "UserEntity.h"
+#import "UserInfoViewController.h"
+#import "SettingViewController.h"
 
 @interface MineViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
@@ -20,9 +22,9 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, assign) BOOL isLogin;
 @property (nonatomic, strong) NSArray *dataArray;
-@property (nonatomic, strong) AccountSignResult *account;
+@property (nonatomic, strong) ObjctResult *account;
 
-@property (nonatomic, strong) UIButton *headImage;
+@property (nonatomic, strong) UIImageView *headImage;
 @property (nonatomic, strong) UIButton *nickName;
 @property (nonatomic, strong) UIButton *youTicket;
 @property (nonatomic, strong) UIButton *setBtn;
@@ -35,9 +37,11 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    AccountSignResult *account = [UserEntity GetCurrentAccount];
+//    self.navigationController.navigationBar.hidden = YES;
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    ObjctResult *account = [UserEntity GetCurrentAccount];
     self.account = account;
-    if (account.obj.token.length) {
+    if (account.token.length) {
         self.isLogin = YES;
     }else{
         self.isLogin = NO;
@@ -46,12 +50,16 @@
 
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.navigationController.navigationBar.hidden = YES;
+//    self.navigationController.navigationBar.hidden = YES;
     
-    _dataArray = @[@[@"我的订单",@"我的收藏"],@[@"我的资料"],@[@"客服"]];
+    _dataArray = @[@[@"我的订单",@"我的收藏"],@[@"客服"]];
     
     [self setViews];
     
@@ -91,13 +99,15 @@
 
 - (void)updateViews{
     if (_isLogin) {
-        [_nickName setTitle:_account.phone forState:UIControlStateNormal];
-        [_nickName removeTarget:self action:@selector(toLogin) forControlEvents:UIControlEventTouchUpInside];
-        [_nickName addTarget:self action:@selector(setImage) forControlEvents:UIControlEventTouchUpInside];
+        if (_account.userinfo.picture) {
+            NSData *data = [[NSData alloc]initWithBase64EncodedString:_account.userinfo.picture options:NSDataBase64DecodingIgnoreUnknownCharacters];
+            UIImage *image = [[UIImage alloc]initWithData:data];
+            _headImage.image = image;
+        }
+        [_nickName setTitle:_account.userinfo.phone forState:UIControlStateNormal];
     }else{
+        _headImage.image = nil;
         [_nickName setTitle:@"立即登录" forState:UIControlStateNormal];
-        [_nickName removeTarget:self action:@selector(setImage) forControlEvents:UIControlEventTouchUpInside];
-        [_nickName addTarget:self action:@selector(toLogin) forControlEvents:UIControlEventTouchUpInside];
     }
 }
 
@@ -106,7 +116,7 @@
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.naviBar];
     
-    _headImage = [[UIButton alloc] init];
+    _headImage = [[UIImageView alloc] init];
     _headImage.width = 80;
     _headImage.height = 80;
     _headImage.x = (kScreenWidth - _headImage.width)/2;
@@ -114,7 +124,9 @@
     _headImage.backgroundColor = RGBColor(0, 0, 0, 0.10);
     _headImage.layer.cornerRadius = 40.0;
     _headImage.clipsToBounds = YES;
-    [_headImage addTarget:self action:@selector(pickerImageChannel) forControlEvents:UIControlEventTouchUpInside];
+    _headImage.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(nickNameAndHeadImgClick)];
+    [_headImage addGestureRecognizer:tapRecognizer];
     [self.tableView.tableHeaderView addSubview:_headImage];
     
     _nickName = [[UIButton alloc]init];
@@ -123,6 +135,7 @@
     _nickName.x = (kScreenWidth - _nickName.width)/2;
     _nickName.y = 184;
     _nickName.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:10];
+    [_nickName addTarget:self action:@selector(nickNameAndHeadImgClick) forControlEvents:UIControlEventTouchUpInside];
     [self.tableView.tableHeaderView addSubview:_nickName];
     
     _youTicket = [[UIButton alloc]init];
@@ -131,9 +144,9 @@
     _youTicket.x = (kScreenWidth - _youTicket.width)/2;
     _youTicket.y = 206;
     _youTicket.backgroundColor = [PublicMethod setColorWithHexString:@"#000000" alpha:0.1];
-    [_youTicket setImage:[UIImage imageNamed:@"游票"] forState:UIControlStateNormal];
+    [_youTicket setImage:[UIImage imageNamed:@"票图标"] forState:UIControlStateNormal];
     [_youTicket setTitle:@"游票:xx" forState:UIControlStateNormal];
-    _youTicket.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:10];
+    _youTicket.titleLabel.font = SCFont(10);
     _youTicket.layer.cornerRadius = 11.5;
     _youTicket.layer.masksToBounds = YES;
     [_youTicket setImageEdgeInsets:UIEdgeInsetsMake(0.0, -8, 0.0, 0.0)];
@@ -142,14 +155,28 @@
     _setBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth-40, 27, 30, 30)];
     [_setBtn setBackgroundImage:[UIImage imageNamed:@"设置"] forState:UIControlStateNormal];
     _setBtn.adjustsImageWhenHighlighted = NO;
+    [_setBtn addTarget:self action:@selector(settingVC) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_setBtn];
     [self.view bringSubviewToFront:_setBtn];
     
     _messageBtn = [[UIButton alloc]initWithFrame:CGRectMake(10, 27, 30, 30)];
     [_messageBtn setBackgroundImage:[UIImage imageNamed:@"消息"] forState:UIControlStateNormal];
     _messageBtn.adjustsImageWhenHighlighted = NO;
+    [_messageBtn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_messageBtn];
     [self.view bringSubviewToFront:_messageBtn];
+}
+
+- (void)test{
+//    [self addAddress];
+}
+
+- (void)nickNameAndHeadImgClick{
+//    if (_isLogin) {
+        [self userInfoList];
+//    }else{
+//        [self toLogin];
+//    }
 }
 
 #pragma mark - UITableView Delegate
@@ -160,7 +187,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         return 2;
-    }else if (section == 1||section == 2){
+    }else if (section == 1){
         return 1;
     }
     return 0;
@@ -189,8 +216,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 1) {
-        SetPasswordController *bindMobileVC = [[SetPasswordController alloc]init];
-        [self presentViewController:bindMobileVC animated:YES completion:nil];
+            EaseMessageViewController *chatVC = [[EaseMessageViewController alloc]initWithConversationChatter:@"scceshi1" conversationType:EMConversationTypeChat];
+            chatVC.hidesBottomBarWhenPushed = YES;
+            chatVC.title = @"客服";
+            [self.navigationController pushViewController:chatVC animated:YES];
     }
 }
 
@@ -218,17 +247,18 @@
 }
 
 #pragma mark - private
-- (void)logout{
-    [UserEntity removeCurrentAccount];
-    NSLog(@"已退出登录");
-    AccountSignResult *account = [UserEntity GetCurrentAccount];
-    self.account = account;
-    if (account.obj.token.length) {
-        self.isLogin = YES;
-    }else{
-        self.isLogin = NO;
-    }
-    [self updateViews];
+
+- (void)userInfoList{
+    UserInfoViewController *userInfoVC = [[UserInfoViewController alloc]init];
+    userInfoVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:userInfoVC animated:YES];
+}
+
+- (void)settingVC{
+    SettingViewController *settingVC = [[SettingViewController alloc]init];
+    settingVC.title = @"设置";
+    settingVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:settingVC animated:YES];
 }
 
 - (void)toLogin{
@@ -236,40 +266,10 @@
     [self presentViewController:loginVC animated:YES completion:nil];
 }
 
-- (void)pickerImageChannel
-{
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
-    _imagePicker = imagePicker;
-    imagePicker.allowsEditing = YES;
-    imagePicker.delegate = self;
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"上传照片" message:@"请选择" preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"本地相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //UIImagePickerControllerSourceTypePhotoLibrary
-        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        [self presentViewController:imagePicker animated:YES completion:nil];
-    }];
-    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"去拍美照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        BOOL isCameraAvailabel = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
-        if (!isCameraAvailabel) {
-            [MBProgressHUD showTextHUDAddedTo:self.view withText:@"没有权限" detailText:nil andHideAfterDelay:0.7];
-            return;
-        }
-        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self presentViewController:imagePicker animated:YES completion:nil];
-    }];
-    UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
-    }];
-    [alertVC addAction:action1];
-    [alertVC addAction:action2];
-    [alertVC addAction:action3];
-    [self presentViewController:alertVC animated:YES completion:nil];
-}
-
 //设置昵称
 - (void)userInfo{
-    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/userController/%@/setUserName?token=%@&username=planist",API_HOST_Test,_account.phone,_account.obj.token];
-    NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlStrTemp = [NSString stringWithFormat:@"%@?token=%@&username=planist",API_SetUserName(_account.userinfo.phone),_account.token];
+    NSString *urlStr = [urlStrTemp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -286,8 +286,9 @@
 }
 //设置生日
 - (void)setBirthday{
-    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/userController/%@/setBirthday?token=%@&birthday=1994.8.1",API_HOST_Test,_account.phone,_account.obj.token];
-    NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/userController/%@/setBirthday?token=%@&birthday=1994.8.1",API_HOST_Test,_account.phone,_account.obj.token];
+    NSString *urlStrTemp = [NSString stringWithFormat:@"%@?token=%@&birthday=1994.8.1",API_SetBirthday(_account.userinfo.phone),_account.token];
+    NSString *urlStr = [urlStrTemp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -304,8 +305,9 @@
 }
 //设置常驻地址?中文地址处理
 - (void)setDomicile{
-    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/userController/%@/setDomicile?token=%@&domicile=beijing",API_HOST_Test,_account.phone,_account.obj.token];
-    NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/userController/%@/setDomicile?token=%@&domicile=beijing",API_HOST_Test,_account.phone,_account.obj.token];
+    NSString *urlStrTemp = [NSString stringWithFormat:@"%@?token=%@&domicile=beijing",API_SetDomicile(_account.userinfo.phone),_account.token];
+    NSString *urlStr = [urlStrTemp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
 //    NSMutableDictionary *param = [NSMutableDictionary dictionary];
 //    param[@"domicile"]=@"北京昌平";
@@ -326,8 +328,8 @@
 //设置个人简介
 - (void)setIntroduction{
 //    NSString *urlStrTemp = [NSString stringWithFormat:@"%@?token=%@&introduction=PlanistGo",API_SetIntroduction(_account.phone),_account.obj.token];
-    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/userController/%@/setIntroduction?token=%@&introduction=PlanistGo",API_HOST_Test,_account.phone,_account.obj.token];
-    NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/userController/%@/setIntroduction?token=%@&introduction=PlanistGo",API_HOST_Test,_account.userinfo.phone,_account.token];
+    NSString *urlStr = [urlStrTemp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -344,8 +346,8 @@
 }
 //获取用户信息
 - (void)getUserInfoAll{
-    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/userController/%@/getUserInfoAll?token=%@",API_HOST_Test,_account.phone,_account.obj.token];
-    NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/userController/%@/getUserInfoAll?token=%@",API_HOST_Test,_account.userinfo.phone,_account.token];
+    NSString *urlStr = [urlStrTemp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -363,8 +365,8 @@
 
 //添加地址?中文地址处理
 - (void)addAddress{
-    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/addressController/%@/addAddress?token=%@&contact=Planist&contactPhone=18510598187&area=beijing&street=huilongguan&detail=502",API_HOST_Test,_account.phone,_account.obj.token];
-    NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/addressController/%@/addAddress?token=%@&contact=沈冲&contactPhone=18510598187&area=北京市昌平区&street=回龙观&detail=新龙城27号楼1单元502",API_HOST_Test,_account.userinfo.phone,_account.token];
+    NSString *urlStr = [urlStrTemp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -381,8 +383,8 @@
 }
 //获取地址列表
 - (void)getAddressList{
-    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/addressController/%@/getAddressList?token=%@",API_HOST_Test,_account.phone,_account.obj.token];
-    NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/addressController/%@/getAddressList?token=%@",API_HOST_Test,_account.userinfo.phone,_account.token];
+    NSString *urlStr = [urlStrTemp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -399,8 +401,8 @@
 }
 //删除地址
 - (void)deleteAddress{
-    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/addressController/%@/deleteAddress?token=%@&id=4",API_HOST_Test,_account.phone,_account.obj.token];
-    NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/addressController/%@/deleteAddress?token=%@&id=4",API_HOST_Test,_account.userinfo.phone,_account.token];
+    NSString *urlStr = [urlStrTemp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -418,8 +420,8 @@
 
 //设置默认地址
 - (void)setPretermissionAddress{
-    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/addressController/%@/setPretermissionAddress?token=%@&pretermissionAddress=4",API_HOST_Test,_account.phone,_account.obj.token];
-    NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/addressController/%@/setPretermissionAddress?token=%@&pretermissionAddress=4",API_HOST_Test,_account.userinfo.phone,_account.token];
+    NSString *urlStr = [urlStrTemp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -437,8 +439,8 @@
 
 //设置头像
 - (void)setImage{
-    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/userController/%@/setImage?token=%@",API_HOST_Test,_account.phone,_account.obj.token];
-    NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/userController/%@/setImage?token=%@",API_HOST_Test,_account.userinfo.phone,_account.token];
+    NSString *urlStr = [urlStrTemp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     UIImage *image = [UIImage imageWithContentsOfFile:@"/Users/easemob/Desktop/移动办工/Planist/Planist/Planist/Resources/delete.png"];
 
@@ -458,8 +460,8 @@
 
 //设置头像
 - (void)setImageWithImage:(UIImage *)image{
-    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/userController/%@/setImage?token=%@",API_HOST_Test,_account.phone,_account.obj.token];
-    NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlStrTemp = [NSString stringWithFormat:@"%@/userController/%@/setImage?token=%@",API_HOST_Test,_account.userinfo.phone,_account.token];
+    NSString *urlStr = [urlStrTemp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -469,12 +471,11 @@
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
-//        [_headImage setBackgroundImage:image forState:UIControlStateNormal];
+        _headImage.image = image;
         
     } fail:^(NSError *error) {
         NSLog(@"error=%@",error);
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-//        [_headImage setBackgroundImage:image forState:UIControlStateNormal];
     }];
 }
 
@@ -482,8 +483,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo{
     [picker dismissViewControllerAnimated:YES completion:nil];
-//    [self setImageWithImage:image];
-    [_headImage setImage:image forState:UIControlStateNormal];
+    [self setImageWithImage:image];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{

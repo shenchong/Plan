@@ -8,9 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "AccountSignResult.h"
+#import "TaeSessionModel.h"
+#import "ObjctResult.h"
 
 @interface UserEntity : NSObject
-+ (void)SaveCurrentAccount:(AccountSignResult *)account;
-+ (AccountSignResult*)GetCurrentAccount;
++ (void)SaveCurrentAccount:(ObjctResult *)account;
++ (ObjctResult*)GetCurrentAccount;
 +(void)removeCurrentAccount;
+
++ (void)SaveTaeSession:(TaeSessionModel *)account;
++ (TaeSessionModel*)GetTaeSession;
++(void)removeTaeSession;
 @end

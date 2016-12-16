@@ -11,6 +11,8 @@
 #import "AccountSignResult.h"
 #import "SetPasswordController.h"
 #import "UserEntity.h"
+#import "BindMobileController.h"
+#import "ObjctResult.h"
 
 @interface LoginViewController ()<UITextFieldDelegate>
 {
@@ -79,8 +81,11 @@
     [self.getCode setBackgroundColor:RGBColor(216, 216, 216, 1)];
     self.getCode.userInteractionEnabled = NO;
     [self.getCode addTarget:self action:@selector(getCodeAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [_qqLogin addTarget:self action:@selector(QQLogin) forControlEvents:UIControlEventTouchUpInside];
 }
 
+#pragma mark - UI
 - (void)securitySwitch:(UIButton *)sender{
     
     if (self.isSecurity) {
@@ -115,17 +120,13 @@
     }
 }
 
+#pragma mark - Login
 - (void)loginAction{
-    
-//    SetPasswordController *newPassVC = [[SetPasswordController alloc]init];
-//    [self presentViewController:newPassVC animated:YES completion:nil];
-    
-    
     if (self.mobileInput.text.length == 11&&self.secretInput.text.length != 0) {
         if ([self.changeLogin.titleLabel.text isEqualToString:@"使用密码登录"]) {
             NSString *phoneNumber = self.mobileInput.text;
             NSString *urlStrTemp = [NSString stringWithFormat:@"%@?phone=%@&passwordPhone=%@",API_Account_LoginByPhone,phoneNumber,self.secretInput.text];
-            NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSString *urlStr = [urlStrTemp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             
             [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             
@@ -133,16 +134,22 @@
                 NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
                 NSLog(@"%@",dic);
                 
-                AccountSignResult *account = [UserEntity GetCurrentAccount];
+                ObjctResult *account = [UserEntity GetCurrentAccount];
                 
                 AccountSignResult *signResult = [AccountSignResult mj_objectWithKeyValues:dic];
-                account.phone = phoneNumber;
-                account.obj.token = signResult.obj.token;
-                [UserEntity SaveCurrentAccount:account];
+                account.userinfo.phone = signResult.obj.userinfo.phone = phoneNumber;
+                account.token = signResult.obj.token;
+                if (account) {
+                    [UserEntity SaveCurrentAccount:account];
+                }else{
+                    [UserEntity SaveCurrentAccount:signResult.obj];
+                    account = [UserEntity GetCurrentAccount];
+                }
+                
                 
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                 
-                if (account.obj.isNew) {
+                if (account.isNew) {
                     SetPasswordController *newPassVC = [[SetPasswordController alloc]init];
                     [self presentViewController:newPassVC animated:YES completion:nil];
                 }else{
@@ -158,7 +165,7 @@
         }else if ([self.changeLogin.titleLabel.text isEqualToString:@"使用验证码登录"]){
             NSString *phoneNumber = self.mobileInput.text;
             NSString *urlStrTemp = [NSString stringWithFormat:@"%@?phone=%@&password=%@",API_Account_LoginByPassword,phoneNumber,self.secretInput.text];
-            NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSString *urlStr = [urlStrTemp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             
             [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             
@@ -169,17 +176,17 @@
                 NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
                 NSLog(@"%@",dic);
                 
-                AccountSignResult *account = [UserEntity GetCurrentAccount];
+                ObjctResult *account = [UserEntity GetCurrentAccount];
                 
                 AccountSignResult *signResult = [AccountSignResult mj_objectWithKeyValues:dic];
-                
-                account.phone = signResult.phone = self.mobileInput.text;
-                account.obj.token = signResult.obj.token;
+                account.userinfo.domicile = signResult.obj.userinfo.domicile = [signResult.obj.userinfo.domicile stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                account.userinfo.phone = signResult.obj.userinfo.phone = self.mobileInput.text;
+                account.token = signResult.obj.token;
                 
                 if (account) {
                     [UserEntity SaveCurrentAccount:account];
                 }else{
-                    [UserEntity SaveCurrentAccount:signResult];
+                    [UserEntity SaveCurrentAccount:signResult.obj];
                 }
                 
                 
@@ -189,7 +196,8 @@
                 [self performSelector:@selector(back) withObject:nil afterDelay:1];
                 
             } fail:^(NSError *error) {
-                
+                NSLog(@"error=%@",error);
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
             }];
         }
     }
@@ -209,22 +217,44 @@
     }
 }
 
+- (void)QQLogin{
+    id <ALBBLoginService> loginService = [[ALBBSDK sharedInstance] getService:@protocol(ALBBLoginService)];
+    [loginService showLogin:self successCallback:^(TaeSession *session) {
+
+        NSLog(@"session===%@",session);
+        
+        TaeSessionModel *taeModel = [[TaeSessionModel alloc]init];
+        taeModel.userId = [session getUserId];
+        taeModel.authorizationCode = [session getAuthorizationCode];
+        taeModel.topAccessToken = [session getTopAccessToken];
+        taeModel.sessionId = [session getSessionId];
+        [UserEntity SaveTaeSession:taeModel];
+        
+        BindMobileController *bindPhoneVC = [[BindMobileController alloc]init];
+        [self presentViewController:bindPhoneVC animated:YES completion:nil];
+        
+    } failedCallback:^(NSError *error){
+
+    }];
+}
+
+
 - (void)getCodeAction:(UIButton *)sender{
     [self startTime];
     
     NSString *phoneNumber = self.mobileInput.text;
-    NSString *urlStrTemp = [NSString stringWithFormat:@"%@?phone=%@",API_Account_GetCode,phoneNumber];
-    NSString *urlStr = [urlStrTemp stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    @"http://192.168.0.109:8080/Planist/loginController/generateCaptchaByPhone?18155307625"
+    NSString *urlStrTemp = [NSString stringWithFormat:@"%@?phone=%@&type=%@",API_Account_GetCode,phoneNumber,@"0"];
+    NSString *urlStr = [urlStrTemp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
     [WebAPIClient getJSONWithUrl:urlStr parameters:nil success:^(id result) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"%@",dic);
         
         AccountSignResult *signResult = [AccountSignResult mj_objectWithKeyValues:dic];
-        [UserEntity SaveCurrentAccount:signResult];
-        AccountSignResult *srt = [UserEntity GetCurrentAccount];
+        [UserEntity SaveCurrentAccount:signResult.obj];
+        ObjctResult *srt = [UserEntity GetCurrentAccount];
         NSLog(@"signResult.msg==%@",signResult.msg);
-        NSLog(@"srt==%d",srt.obj.isNew);
+        NSLog(@"srt==%d",srt.isNew);
         
         [MBProgressHUD showTextHUDAddedTo:self.view withText:@"验证码已发送" detailText:@"请耐心等待" andHideAfterDelay:1];
         

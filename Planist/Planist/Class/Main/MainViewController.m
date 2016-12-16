@@ -24,10 +24,10 @@
     
     //初始化加载视图：
     if ([[UIDevice currentDevice].systemVersion floatValue]>=7.0) {
-        [[UINavigationBar appearance] setBarTintColor:RGBColor(220, 89, 54,1)];
+        [[UINavigationBar appearance] setBarTintColor:[PublicMethod setColorWithHexString:@"#FA6464"]];
         [UINavigationBar appearance].tintColor = [UIColor whiteColor];
     }else{
-        [[UINavigationBar appearance] setTintColor:RGBColor(220, 89, 54,1)];
+        [[UINavigationBar appearance] setTintColor:[PublicMethod setColorWithHexString:@"#FA6464"]];
     }
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:17]}];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
@@ -78,7 +78,7 @@
 {
     [tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                         [UIFont fontWithName:@"PingFangSC-Regular" size:10],
-                                        UITextAttributeFont,[PublicMethod SetColorWithHexString:@"#FA6464"],UITextAttributeTextColor,
+                                        UITextAttributeFont,[PublicMethod setColorWithHexString:@"#FA6464"],UITextAttributeTextColor,
                                         nil] forState:UIControlStateSelected];
 }
 

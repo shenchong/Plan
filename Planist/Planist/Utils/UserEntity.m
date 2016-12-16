@@ -10,14 +10,14 @@
 
 @implementation UserEntity
 
-+(void)SaveCurrentAccount:(AccountSignResult *)account
++(void)SaveCurrentAccount:(ObjctResult *)account
 {
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *accountPath = [path stringByAppendingString:@"/Account.data"];
     [NSKeyedArchiver archiveRootObject:account toFile:accountPath];
 }
 
-+ (AccountSignResult*)GetCurrentAccount
++ (ObjctResult *)GetCurrentAccount
 {
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *accountPath = [path stringByAppendingString:@"/Account.data"];
@@ -28,6 +28,27 @@
 {
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *rootPath = [path stringByAppendingString:@"/Account.data"];
+    NSFileManager *manger = [NSFileManager defaultManager];
+    if ([manger fileExistsAtPath:rootPath])
+    {
+        [manger removeItemAtPath:rootPath error:nil];
+    }
+}
+
+
++ (void)SaveTaeSession:(TaeSessionModel *)account{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *accountPath = [path stringByAppendingString:@"/TaeSession.data"];
+    [NSKeyedArchiver archiveRootObject:account toFile:accountPath];
+}
++ (TaeSessionModel*)GetTaeSession{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *accountPath = [path stringByAppendingString:@"/TaeSession.data"];
+    return  [NSKeyedUnarchiver unarchiveObjectWithFile:accountPath];
+}
++(void)removeTaeSession{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *rootPath = [path stringByAppendingString:@"/TaeSession.data"];
     NSFileManager *manger = [NSFileManager defaultManager];
     if ([manger fileExistsAtPath:rootPath])
     {

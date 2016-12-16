@@ -4,4 +4,5 @@ target 'Planist' do
   pod 'SVProgressHUD'
   pod 'MBProgressHUD'
   pod ‘MJExtension'
+  pod 'Hyphenate_CN'
 end

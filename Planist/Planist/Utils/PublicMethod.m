@@ -128,7 +128,7 @@
     return [UIColor colorWithRed:((float)r / 255.0f) green:((float)g / 255.0f) blue:((float)b / 255.0f) alpha:alpha];
 }
 
-+ (UIColor *)SetColorWithHexString:(NSString *)color{
++ (UIColor *)setColorWithHexString:(NSString *)color{
     return [self setColorWithHexString:color alpha:1.0f];
 }
 @end

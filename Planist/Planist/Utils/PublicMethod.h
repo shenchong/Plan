@@ -11,6 +11,6 @@
 @interface PublicMethod : NSObject
 ///设置颜色
 + (UIColor *)setColorWithString:(NSString *)color alpha:(CGFloat)alpha;
-+ (UIColor *)SetColorWithHexString:(NSString *)color;
++ (UIColor *)setColorWithHexString:(NSString *)color;
 + (UIColor *)setColorWithHexString:(NSString *)color alpha:(CGFloat)alpha;
 @end

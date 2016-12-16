@@ -11,6 +11,7 @@
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#ifdef __OBJC__
 #import "BaseViewController.h"
 #import "UIView+Extension.h"
 #import "WebAPIClient.h"
@@ -21,14 +22,23 @@
 #import <MBProgressHUD.h>
 #import <SVProgressHUD.h>
 
+#import "EMSDK.h"
+#import "EaseUI.h"
+
+#import <ALBBSDK/ALBBSDK.h>
+#import <ALBBLoginSDK/ALBBLoginSDK.h>
+
 //rgb
 #define RGBColor(r,g,b,p) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:p/1.0]
 #define kScreenBounds [UIScreen mainScreen].bounds
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 
+//#define SCFont [UIFont fontWithName:@"PingFangSC-Regular" size:10]
+#define SCFont(FONTSIZE) [UIFont fontWithName:@"PingFangSC-Regular" size:(FONTSIZE)]
+
 //#define API_HOST_Test @"http://www.planist.site/Planist"
-#define API_HOST_Test @"http://192.168.0.110:8080/Planist"
+#define API_HOST_Test @"http://192.168.0.100:8080/Planist"
 
 //Account
 #define API_Account_LoginByPhone [NSString stringWithFormat:@"%@/loginController/loginByPhone",API_HOST_Test]
@@ -38,29 +48,30 @@
 #define API_Account_LoginByPassword [NSString stringWithFormat:@"%@/loginController/loginByPassword",API_HOST_Test]
 //User
 //上传头像
-#define API_UpdateHeader(phone) [NSString stringWithFormat:@"%@/userController/(phone)/setImage",API_HOST_Test]
+#define API_UpdateHeader(phone) [NSString stringWithFormat:@"%@/userController/%@/setImage",API_HOST_Test,phone]
 //更改用户名
-#define API_SetUserName(phone) [NSString stringWithFormat:@"%@/userController/(phone)/setUserName",API_HOST_Test]
+#define API_SetUserName(phone) [NSString stringWithFormat:@"%@/userController/%@/setUserName",API_HOST_Test,phone]
 //获取全部用户信息
-#define API_GetUserInfoAll(phone) [NSString stringWithFormat:@"%@/userController/(phone)/getUserInfoAll",API_HOST_Test]
+#define API_GetUserInfoAll(phone) [NSString stringWithFormat:@"%@/userController/%@/getUserInfoAll",API_HOST_Test,phone]
 //设置用户回答的三个问题
-#define API_SetQuestionResult(phone) [NSString stringWithFormat:@"%@/userController/(phone)/setQuestionResult",API_HOST_Test]
+#define API_SetQuestionResult(phone) [NSString stringWithFormat:@"%@/userController/%@/setQuestionResult",API_HOST_Test,phone]
 //设置用户生日
-#define API_SetBirthday(phone) [NSString stringWithFormat:@"%@/userController/(phone)/setBirthday",API_HOST_Test]
+#define API_SetBirthday(phone) [NSString stringWithFormat:@"%@/userController/%@/setBirthday",API_HOST_Test,phone]
 //设置常驻地址
+#define API_SetDomicile(phone) [NSString stringWithFormat:@"%@/userController/%@/setDomicile",API_HOST_Test,phone]
 //设置用户个人简介
-#define API_SetIntroduction(phone) [NSString stringWithFormat:@"%@/userController/(phone)/setIntroduction",API_HOST_Test]
+#define API_SetIntroduction(phone) [NSString stringWithFormat:@"%@/userController/%@/setIntroduction",API_HOST_Test,phone]
 //Address
 //添加地址
-#define API_AddAddress(phone) [NSString stringWithFormat:@"%@/addressController/(phone)/addAddress",API_HOST_Test]
+#define API_AddAddress(phone) [NSString stringWithFormat:@"%@/addressController/%@/addAddress",API_HOST_Test,phone]
 //删除地址
-#define API_DeleteAddress(phone) [NSString stringWithFormat:@"%@/addressController/(phone)/deleteAddress",API_HOST_Test]
+#define API_DeleteAddress(phone) [NSString stringWithFormat:@"%@/addressController/%@/deleteAddress",API_HOST_Test,phone]
 //设置默认地址
-#define API_SetPretermissionAddress(phone) [NSString stringWithFormat:@"%@/addressController/(phone)/setPretermissionAddress",API_HOST_Test]
+#define API_SetPretermissionAddress(phone) [NSString stringWithFormat:@"%@/addressController/%@/setPretermissionAddress",API_HOST_Test,phone]
 //获取收货地址列表
-#define API_GetAddressList(phone) [NSString stringWithFormat:@"%@/addressController/(phone)/getAddressList",API_HOST_Test]
+#define API_GetAddressList(phone) [NSString stringWithFormat:@"%@/addressController/%@/getAddressList",API_HOST_Test,phone]
 
 
 #endif /* Planist_pch */
-
+#endif
 
